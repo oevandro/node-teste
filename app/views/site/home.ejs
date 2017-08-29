@@ -2,3 +2,10 @@
     <%    var texto = "teste";  %>
     <%= texto %>
 </p>
+
+<hr>
+    <ul>
+        <% for(var chave in clientes){ %>
+             <li><%=  clientes[chave].nome %> | <%=  clientes[chave].email %></li>
+        <% } %>
+    </ul>

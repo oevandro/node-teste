@@ -11,11 +11,22 @@
     </ul>
 
     <hr>
+    <% if(erros){ %>
+        <ul>
+
+        <% for(var chave in erros){ %>
+             <li style="color:red"><%=  erros[chave].msg %></li>
+        <% } %>
+
+
+        </ul>
+
+    <% } %>
 
     <form action='/' method="post">
-        <input type="text" name="nome" placeholder="Nome">
+        <input type="text" name="nome" placeholder="Nome" value="<%= dados.nome %>">
         <br>
-        <input type="text" name="email" placeholder="E-mail">
+        <input type="text" name="email" placeholder="E-mail" value="<%= dados.email %>">
         <br>
         <button>Adicionar</button>
         <br>

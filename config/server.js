@@ -6,6 +6,8 @@ module.exports = function(){
 var express = require('express');
 //Adiciona Body Parser
 var bodyParser = require('body-parser');
+//Adiciona Express Validator
+var expressValidator = require('express-validator');
 
 //Atribui o Express na Variavel
 var app = express();
@@ -15,6 +17,9 @@ app.set('view engine', 'ejs');
 
 //Seta outra pasta para a views
 app.set('views', './app/views');
+
+//Configuracao Express Validator
+app.use(expressValidator());
 
 //Configuracao Body Parser
 app.use(bodyParser.json());

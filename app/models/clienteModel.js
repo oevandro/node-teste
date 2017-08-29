@@ -1,25 +1,11 @@
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'curso_node'
-});
+var db = require('../../config/db');
 
 module.exports = function(){
-    this.all = function(){
+  this.all = function(retorno){
+    var con = db();
+    return con.query('select * from clientes',retorno);    
+  };
 
-        con.query('SELECT * FROM clientes', function(erro, resultado){
-            console.log(resultado);
-        });
-
-        return [
-            {nome: 'teste nome', email:'123'}
-        ];
-    };
-
-    return this;
+  return this;
 
 };
- 

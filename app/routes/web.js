@@ -1,13 +1,14 @@
 //Importando o Modelo Cliente 
-var clienteModel = require('../models/clienteModel')();
-//Criando um Modelo de Rotas
+var clienteController = require('../controllers/clienteController');
+//Criando um as Rotas
 module.exports = function(app){
 
+    //HOME
     app.get('/', function(req,res){
-        //console.log(clienteModel.all());
-        var listaClientes = clienteModel.all();
-        res.render(`site/home`, {clientes:listaClientes});
+        clienteController.index(req,res);    
     });
+
+    //CONTATO
     app.get('/contato', function(req,res){
         res.render(`site/contato`);
     }); 

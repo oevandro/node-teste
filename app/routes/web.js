@@ -8,9 +8,19 @@ module.exports = function(app){
         clienteController.index(req,res);    
     });
 
+    //SALVAR
+    app.post('/', function(req,res){
+        clienteController.store(req,res);    
+    });
+
     //CONTATO
     app.get('/contato', function(req,res){
         res.render(`site/contato`);
+    }); 
+
+    //DETALHE
+    app.get('/detalhe/:id', function(req,res){       
+        clienteController.show(req,res);  
     }); 
 
 }

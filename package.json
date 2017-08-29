@@ -4,6 +4,7 @@
   "description": "aula06",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "mysql": "^2.14.1"

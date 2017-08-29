@@ -9,3 +9,14 @@
              <li><%=  clientes[chave].nome %> | <%=  clientes[chave].email %></li>
         <% } %>
     </ul>
+
+    <hr>
+
+    <form action='/' method="post">
+        <input type="text" name="nome" placeholder="Nome">
+        <br>
+        <input type="text" name="email" placeholder="E-mail">
+        <br>
+        <button>Adicionar</button>
+        <br>
+    </form>

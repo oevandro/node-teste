@@ -1,3 +1,16 @@
-<h4>Detalhe</h4>
+<% include includes/topo.ejs %>
+ 
 
-<p> - <%= cliente.nome %> <br>- <%= cliente.email %> <br></p>
+<div class="container" style="margin-top:50px;">
+    <div class="col-md-8">
+
+        <h4>Detalhe</h4>
+
+        <p> - <%= cliente.nome %> <br>- <%= cliente.email %> <br></p>
+        
+        <a href="/home" type="button" class="btn btn-success btn-xs">Voltar</a>
+
+    </div>
+</div>
+
+<% include includes/rodape.ejs %>

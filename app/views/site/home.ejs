@@ -1,33 +1,55 @@
-<p>
-    <%    var texto = "teste";  %>
-    <%= texto %>
-</p>
+<% include includes/topo.ejs %>
 
-<hr>
-    <ul>
-        <% for(var chave in clientes){ %>
-             <li><%=  clientes[chave].nome %> | <%=  clientes[chave].email %></li>
-        <% } %>
-    </ul>
+<!-- <p> <%    var texto = "teste";  %> <%= texto %> </p> -->
 
-    <hr>
-    <% if(erros){ %>
-        <ul>
+<div class="container" style="margin-top:50px;">
+    <div class="col-md-8">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+                <% for(var chave in clientes){ %>
+                    <tr>
+                        <td><%=  clientes[chave].nome %></td>
+                        <td><%=  clientes[chave].email %></td>
+                        <td>
+                            <a href="/detalhe/<%=  clientes[chave].id %>" type="button" class="btn btn-success btn-xs">Detalhes</a>
+                            <button type="button" class="btn btn-primary btn-xs">Editar</button>
+                            <button type="button" class="btn btn-danger btn-xs">Excluir</button>
+                        </td>
+                    </tr>
+                <% } %>                   
+             
+            </table>
 
-        <% for(var chave in erros){ %>
-             <li style="color:red"><%=  erros[chave].msg %></li>
-        <% } %>
 
+    </div>
+    <div class="col-md-4">
+        <!-- ERROS FORM -->
+            <% if(erros){ %>
+                <ul>        
+                    <% for(var chave in erros){ %>
+                        <li style="color:red"><%=  erros[chave].msg %></li>
+                    <% } %>     
+                </ul>        
+            <% } %>        
+             
+            <form  action='/' method="post" >
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Nome</label>
+                      <input type="text" class="form-control" id="" placeholder="Nome"  name="nome" placeholder="Nome" value="<%= dados.nome %>" >
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email</label>
+                      <input type="text" class="form-control" id="" placeholder="Email"  name="email" placeholder="E-mail" value="<%= dados.email %>" >
+                    </div>
+                      
+                    <button type="submit" class="btn btn-success">SALVAR</button>
+                  </form>
 
-        </ul>
+    </div>
+</div>
 
-    <% } %>
-
-    <form action='/' method="post">
-        <input type="text" name="nome" placeholder="Nome" value="<%= dados.nome %>">
-        <br>
-        <input type="text" name="email" placeholder="E-mail" value="<%= dados.email %>">
-        <br>
-        <button>Adicionar</button>
-        <br>
-    </form>
+    <% include includes/rodape.ejs %>

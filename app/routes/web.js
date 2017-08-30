@@ -3,8 +3,13 @@ var clienteController = require('../controllers/clienteController');
 //Criando um as Rotas
 module.exports = function(app){
 
-    //HOME
+    //INDEX
     app.get('/', function(req,res){
+        clienteController.index(req,res);    
+    });
+
+    //HOME
+    app.get('/home', function(req,res){
         clienteController.index(req,res);    
     });
 
